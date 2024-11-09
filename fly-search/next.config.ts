@@ -3,10 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    localPatterns: [
+    remotePatterns: [
       {
-        pathname: 'cdn-a.flytoday.ir',
-        search: '',
+        protocol: 'https',
+        hostname: 'cdn-a.flytoday.ir',
       },
     ],
   },

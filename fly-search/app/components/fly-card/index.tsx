@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function FlyCard() {
   return (
@@ -11,7 +11,7 @@ export default function FlyCard() {
         </div>
         <div>
             <div>
-            {/* <Image alt="QB logo" loading="lazy" width="30" height="25" src="https://cdn-a.flytoday.ir/upload/flytoday/upload/airlinelogos/v2/qb.png" /> */}
+            <Image alt="QB logo" loading="lazy" width="30" height="25" src="https://cdn-a.flytoday.ir/upload/flytoday/upload/airlinelogos/v2/qb.png" />
                 فشم ایر
             </div>
         </div>
