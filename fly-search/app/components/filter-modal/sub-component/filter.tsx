@@ -14,14 +14,15 @@ export default function Filter({ title, children }: Props) {
     <>
       <div
         onClick={() => setOpen((perv) => !perv)}
-        className="flex justify-between"
+        className="flex justify-between cursor-pointer"
       >
-        <div className="font-bold">{title}</div>
+        <div className="font-bold cursor-pointer">{title}</div>
         <Image
           src={open ? UpIcon : DownIcon}
           alt="up icon"
           width="20"
           height="20"
+          className="cursor-pointer"
         />
       </div>
       <div className="p-2">{open && children}</div>

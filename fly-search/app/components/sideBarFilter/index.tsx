@@ -6,17 +6,22 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SideBarFilter() {
   const router = useRouter();
-  const params = new URLSearchParams();
-  const handlesetParams = (value:string | null) => {
-    if(!params.has('ticketType')){
-        params.append('ticketType',`${value}`)
-    }else{
-        params.delete('ticketType')
-        params.append('ticketType',`${value}`)
+  const handlesetParams = (value: string | null) => {
+    const params = new URLSearchParams(window.location.search);
+    if (value) {
+      params.set('ticketType', `${value}`)
     }
+    router.push(`?${params.toString()}`);
   };
+  const handleCargoParams = (value: string | null) => {
+    const params = new URLSearchParams(window.location.search);
+    if (value) {
+      params.set('cargo', `${value}`)
+    }
+    router.push(`?${params.toString()}`);
+  }
   return (
-    <div className="w-1/4 p-4 hidden lg:block">
+    <div className="w-1/4 p-4 hidden lg:block max-h-[400px] sticky top-2">
       <div className="flex flex-col gap-2">
         <Filter title="نوع بلیط">
           <FilterItem
@@ -30,9 +35,9 @@ export default function SideBarFilter() {
           {cargoFilter?.map((item) => (
             <FilterItem
               key={item}
-              name="cargo"
+              name='cargo'
               title={item}
-              setData={handlesetParams}
+              setData={handleCargoParams}
             />
           ))}
         </Filter>

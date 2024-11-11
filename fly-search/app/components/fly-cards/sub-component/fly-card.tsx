@@ -18,7 +18,6 @@ export default function FlyCard({ data }: Props) {
     airlines,
     originDestinationOptions[0]?.flightSegments[0]?.operatingAirline?.code
   )?.iata?.toLowerCase();
-  console.log(imageSrc);
   return (
     <div className="flex flex-col md:flex-row border gap-4 md:gap-0 rounded-lg hover:md:shadow transition-all duration-150 border-divider-secondary pt-4 md:pt-0">
       <div className="flex flex-col w-full md:w-9/12 pt-2 gap-4">

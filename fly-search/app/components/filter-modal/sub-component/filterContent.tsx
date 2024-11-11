@@ -11,7 +11,7 @@ interface Props {
   onClose: () => void;
 }
 export default function FilterContent({ onClose }: Props) {
-  const [sort, setSort] = useState<string | null>("cheapest");
+  const [sort, setSort] = useState<string | null>("ارزانترین");
   const [ticketType, setTicketType] = useState<string | null>(null);
   const [cargo, setCargo] = useState<string | null>(null);
   const router = useRouter();
@@ -50,17 +50,17 @@ export default function FilterContent({ onClose }: Props) {
           className="bg-white border h-12 p-2 rounded-lg"
           name="sort"
           id="sort"
-          defaultValue="cheapest"
+          defaultValue="ارزانترین"
         >
-          <option value="cheapest">ارزانترین</option>
-          <option value="fastest">سریعترین</option>
+          <option value="ارزانترین">ارزانترین</option>
+          <option value="سریعترین">سریعترین</option>
         </select>
       </div>
       <div className="flex flex-col gap-2">
         <Filter title="نوع بلیط">
           <FilterItem
             title="سیستمی"
-            name="isSystem"
+            name="ticketType"
             value="isSystem"
             setData={setTicketType}
           />
