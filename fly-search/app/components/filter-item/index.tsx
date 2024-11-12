@@ -19,7 +19,7 @@ export default function FilterItem({ title, value,name, setData }: Props) {
       <input
         className="w-4 cursor-pointer"
         onChange={handleChange}
-        type="radio"
+        type="checkbox"
         name={name}
         id={title}
         value={value ? value : title}

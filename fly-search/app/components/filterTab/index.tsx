@@ -16,9 +16,9 @@ export default function FilterTab() {
   };
 
   useEffect(() => {
-    setSort(searchParams.get('sort') || 'ارزانترین'); 
+    setSort(searchParams.get('sort') || 'ارزانترین');
   }, [searchParams]);
-
+  
   return (
     <div style={{ direction: "ltr" }} className="mx-2 hidden lg:block">
       <div className="flex border border-gray-300 rounded-xl w-3/4 h-20 cursor-pointer">

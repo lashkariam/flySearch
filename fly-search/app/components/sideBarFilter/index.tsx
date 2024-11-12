@@ -2,7 +2,7 @@
 import { cargoFilter } from "@/app/utils/constant";
 import FilterItem from "../filter-item";
 import Filter from "../filter-modal/sub-component/filter";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SideBarFilter() {
   const router = useRouter();
@@ -10,6 +10,8 @@ export default function SideBarFilter() {
     const params = new URLSearchParams(window.location.search);
     if (value) {
       params.set('ticketType', `${value}`)
+    }else{
+      params.delete('ticketType')
     }
     router.push(`?${params.toString()}`);
   };
@@ -17,6 +19,8 @@ export default function SideBarFilter() {
     const params = new URLSearchParams(window.location.search);
     if (value) {
       params.set('cargo', `${value}`)
+    }else{
+      params.delete('cargo')
     }
     router.push(`?${params.toString()}`);
   }

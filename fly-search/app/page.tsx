@@ -1,4 +1,3 @@
-import FilterModal from "./components/filter-modal";
 import FlyCards from "./components/fly-cards";
 import data from "@/app/flight-data.json";
 import SideBarFilter from "./components/sideBarFilter";
