@@ -11,7 +11,7 @@ interface Props {
   onClose: () => void;
 }
 export default function FilterContent({ onClose }: Props) {
-  const [sort, setSort] = useState<string | null>("ارزانترین");
+  const [sort, setSort] = useState<string | null>();
   const [ticketType, setTicketType] = useState<string | null>(null);
   const [cargo, setCargo] = useState<string | null>(null);
   const router = useRouter();
@@ -28,6 +28,7 @@ export default function FilterContent({ onClose }: Props) {
       }
     });
     router.push(`?${params.toString()}`);
+    onClose()
   };
 
   return (
@@ -50,7 +51,6 @@ export default function FilterContent({ onClose }: Props) {
           className="bg-white border h-12 p-2 rounded-lg"
           name="sort"
           id="sort"
-          defaultValue="ارزانترین"
         >
           <option value="ارزانترین">ارزانترین</option>
           <option value="سریعترین">سریعترین</option>

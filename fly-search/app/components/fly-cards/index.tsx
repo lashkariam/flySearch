@@ -16,18 +16,14 @@ export default function FlyCards() {
   const [visibleData, setVisibleData] = useState<[]>([]);
   const [page, setPage] = useState(1);
   const loadMoreRef = useRef(null);
-  const params = useSearchParams()
+  const params = useSearchParams();
   const sort = params.get("sort");
   const cargo = params.get("cargo");
   const ticketType = params.get("ticketType");
   const getFilteredData = () => {
     let filteredData = pricedItineraries;
-
     if (sort) {
-      filteredData =
-        sort === "سریعترین"
-          ? filterSortByTime(filteredData)
-          : filterSortByCost(filteredData);
+      filteredData = sort === "سریعترین" ? filterSortByTime(filteredData):filterSortByCost(filteredData);
     }
 
     if (cargo) {
@@ -41,7 +37,7 @@ export default function FlyCards() {
     return filteredData;
   };
 
-  console.log(getFilteredData())
+  console.log(getFilteredData());
 
   useEffect(() => {
     const filteredData = getFilteredData();
@@ -52,7 +48,9 @@ export default function FlyCards() {
   const loadMoreData = () => {
     const filteredData = getFilteredData();
     const newItems = filteredData?.slice(page * 10, (page + 1) * 10);
-    setVisibleData((prevData) => [...(prevData || []), ...(newItems || [])] as []);
+    setVisibleData(
+      (prevData) => [...(prevData || []), ...(newItems || [])] as []
+    );
     setPage((prevPage) => prevPage + 1);
   };
   useEffect(() => {

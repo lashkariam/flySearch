@@ -10,7 +10,9 @@ export default function FilterTab() {
   const handleSort = (e: MouseEvent<HTMLDivElement>) => {
     const selectedSort = e.currentTarget.textContent || '';
     const params = new URLSearchParams(window.location.search);
-    params.set('sort', selectedSort);
+    selectedSort === "سریعترین"
+    ? params.set("sort", selectedSort)
+    : params.delete("sort");
     router.push(`?${params.toString()}`);
     setSort(selectedSort); 
   };

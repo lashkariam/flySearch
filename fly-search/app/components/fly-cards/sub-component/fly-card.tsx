@@ -6,6 +6,8 @@ import {
 } from "@/app/utils/helper";
 import Image from "next/image";
 import airportData from "@/app/flight-data.json";
+import Airport from "./airport";
+import TimeAndCity from "./timeAndCity";
 interface Props {
   //eslint-disable-next-line
   data: any;
@@ -54,32 +56,29 @@ export default function FlyCard({ data }: Props) {
               </div>
             </div>
             <div className="flex flex-1 flex-col md:flex-row justify-between  md:pt-4 px-12 gap-2 md:gap-0 relative">
-              <div className="flex md:flex-col gap-2">
-                <div>
-                  {convertToTime(
-                    originDestinationOptions[0]?.flightSegments[0]
-                      ?.departureDateTime
-                  )}
-                </div>
-                <div>
-                  {
-                    convertLocation(
-                      airports,
-                      originDestinationOptions[0]?.flightSegments[0]
-                        ?.departureAirportLocationCode
-                    )?.cityFa
-                  }
-                </div>
-              </div>
-              <div className="md:hidden text-xs">
-                {
+              <TimeAndCity
+                time={convertToTime(
+                  originDestinationOptions[0]?.flightSegments[0]
+                    ?.departureDateTime
+                )}
+                city={
                   convertLocation(
                     airports,
                     originDestinationOptions[0]?.flightSegments[0]
                       ?.departureAirportLocationCode
-                  )?.nameFa
+                  )?.cityFa as string
                 }
-              </div>
+              />
+              <Airport
+                title={
+                  convertLocation(
+                    airports,
+                    originDestinationOptions[0]?.flightSegments[0]
+                      ?.departureAirportLocationCode
+                  )?.nameFa as string
+                }
+              />
+
               <div className="flex gap-2 flex-wrap">
                 <div className="md:absolute md:flex md:right-[40%] text-[#3662db] text-xs bg-[#3662db0f] px-2 py-1 rounded-full text-nowrap">
                   {formatTime(
@@ -92,32 +91,28 @@ export default function FlyCard({ data }: Props) {
                 </div>
               </div>
               <div className="border-b relative top-[-50px] w-[70%] hidden md:flex"></div>
-              <div className="flex md:flex-col gap-2">
-                <div>
-                  {convertToTime(
-                    originDestinationOptions[0]?.flightSegments[0]
-                      ?.arrivalDateTime
-                  )}
-                </div>
-                <div>
-                  {
-                    convertLocation(
-                      airports,
-                      originDestinationOptions[0]?.flightSegments[0]
-                        ?.arrivalAirportLocationCode
-                    )?.cityFa
-                  }
-                </div>
-              </div>
-              <div className="md:hidden text-xs">
-                {
+              <TimeAndCity
+                time={convertToTime(
+                  originDestinationOptions[0]?.flightSegments[0]
+                    ?.arrivalDateTime
+                )}
+                city={
                   convertLocation(
                     airports,
                     originDestinationOptions[0]?.flightSegments[0]
                       ?.arrivalAirportLocationCode
-                  )?.nameFa
+                  )?.cityFa as string
                 }
-              </div>
+              />
+              <Airport
+                title={
+                  convertLocation(
+                    airports,
+                    originDestinationOptions[0]?.flightSegments[0]
+                      ?.arrivalAirportLocationCode
+                  )?.nameFa as string
+                }
+              />
             </div>
           </div>
           <div className="pt-4 flex flex-col gap-2 text-xs justify-center">
